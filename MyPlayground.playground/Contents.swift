@@ -41,3 +41,27 @@ bob = "some value"
 
 let myConstantArray = ["alfie"]
 
+
+var myOptionalString: String? = "alfie"
+
+myOptionalString = "scrumptious"
+
+myOptionalString = nil
+
+if let myConstantString = myOptionalString
+{
+    println("the value is not nil")
+}
+else
+{
+    println("nil!")
+}
+
+var myOptionalArray: Array<String>? = ["scrumptious"]
+
+myOptionalArray = nil
+
+myOptionalArray?.append("alfie")
+
+myOptionalArray
+
