@@ -2,4 +2,36 @@
 
 import UIKit
 
-var str = "Hello, playground"
+var myString = "Hello, playground"
+
+var myOtherString: String
+
+myOtherString = "something cool"
+
+var myInt = 1000
+myInt = myInt * 5
+
+var myOtherInt: Int
+myOtherInt = 999
+
+var myFloat = 0.5
+var myOtherFloat = 0.9999
+myOtherFloat = 1.02
+
+var myArray = ["something"]
+
+var myOtherArray: Array<String>
+myOtherArray = ["zero"]
+myOtherArray.append("one")
+myOtherArray.append("two")
+
+var myDictionary = ["key" : "value"]
+
+var myOtherDictionary: Dictionary<String, String>
+myOtherDictionary = ["one" : "value1"]
+myOtherDictionary["two"] = "value2"
+
+myOtherDictionary
+
+
+
