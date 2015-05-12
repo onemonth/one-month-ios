@@ -3,9 +3,9 @@
 import UIKit
 
 var myString = "Hello, playground"
+myString = "some new string"
 
 var myOtherString: String
-
 myOtherString = "something cool"
 
 var myInt = 1000
@@ -33,5 +33,11 @@ myOtherDictionary["two"] = "value2"
 
 myOtherDictionary
 
+let myNewString = "test value"
 
+let bob: String
+
+bob = "some value"
+
+let myConstantArray = ["alfie"]
 
