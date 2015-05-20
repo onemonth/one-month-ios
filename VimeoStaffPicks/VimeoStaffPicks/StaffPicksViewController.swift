@@ -12,6 +12,8 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView?
     
+    let cellIdentifier = "CellIdentifier"
+    
     let items = ["alfie", "lee", "mattan", "syd", "zach"]
     
     // MARK: View Lifecycle
@@ -21,6 +23,8 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
 
         // Do any additional setup after loading the view.
 
+        self.title = "Staff Picks"
+        
         self.setupTableView()
     }
     
@@ -28,7 +32,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     func setupTableView() {
         
-        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: "placeholder")
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     // MARK: UITableViewDatasource
@@ -40,7 +44,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("placeholder") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row]
         

@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        self.window?.rootViewController = StaffPicksViewController(nibName:"StaffPicksViewController", bundle:nil)
+        let viewController = StaffPicksViewController(nibName:"StaffPicksViewController", bundle:nil)
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        self.window?.rootViewController = navigationController
         
         self.window?.makeKeyAndVisible()
         
