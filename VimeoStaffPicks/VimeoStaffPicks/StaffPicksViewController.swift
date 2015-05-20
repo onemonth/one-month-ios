@@ -12,7 +12,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView?
     
-    let items = ["alfie", "lee", "mattan", "syd", "zach"]
+    let items = ["alfie", "lee", "mattan", "syd", "zach", "sjdhfalksdfhalsdfhlasdhflkjasdhfladhsfalkjsdhflkajshdflkjahsdflkajhsdflkajhsdf"]
     
     // MARK: View Lifecycle
 
@@ -29,8 +29,9 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     // MARK: Setup
     
     func setupTableView() {
-        
-        self.tableView?.registerClass(VideoCell.self, forCellReuseIdentifier: NSStringFromClass(VideoCell.self))
+
+        let nib = UINib(nibName: "VideoCell", bundle: nil)
+        self.tableView?.registerNib(nib, forCellReuseIdentifier: NSStringFromClass(VideoCell.self))
     }
     
     // MARK: UITableViewDatasource
@@ -44,7 +45,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(VideoCell.self)) as! VideoCell
         
-        cell.textLabel?.text = self.items[indexPath.row]
+        cell.nameLabel?.text = self.items[indexPath.row]
         
         return cell
     }
