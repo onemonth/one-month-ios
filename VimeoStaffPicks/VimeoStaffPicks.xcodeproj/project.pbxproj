@@ -11,6 +11,8 @@
 		31031CE21B0C0209008500C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31031CE11B0C0209008500C1 /* Images.xcassets */; };
 		31031CE51B0C0209008500C1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31031CE31B0C0209008500C1 /* LaunchScreen.xib */; };
 		31031CF11B0C0209008500C1 /* VimeoStaffPicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31031CF01B0C0209008500C1 /* VimeoStaffPicksTests.swift */; };
+		31031CFC1B0C0ABD008500C1 /* StaffPicksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31031CFA1B0C0ABD008500C1 /* StaffPicksViewController.swift */; };
+		31031CFD1B0C0ABD008500C1 /* StaffPicksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31031CFB1B0C0ABD008500C1 /* StaffPicksViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 		31031CEA1B0C0209008500C1 /* VimeoStaffPicksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VimeoStaffPicksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31031CEF1B0C0209008500C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31031CF01B0C0209008500C1 /* VimeoStaffPicksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoStaffPicksTests.swift; sourceTree = "<group>"; };
+		31031CFA1B0C0ABD008500C1 /* StaffPicksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffPicksViewController.swift; sourceTree = "<group>"; };
+		31031CFB1B0C0ABD008500C1 /* StaffPicksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffPicksViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				31031CDA1B0C0209008500C1 /* AppDelegate.swift */,
+				31031CFA1B0C0ABD008500C1 /* StaffPicksViewController.swift */,
+				31031CFB1B0C0ABD008500C1 /* StaffPicksViewController.xib */,
 				31031CE11B0C0209008500C1 /* Images.xcassets */,
 				31031CE31B0C0209008500C1 /* LaunchScreen.xib */,
 				31031CD81B0C0209008500C1 /* Supporting Files */,
@@ -188,6 +194,7 @@
 			files = (
 				31031CE51B0C0209008500C1 /* LaunchScreen.xib in Resources */,
 				31031CE21B0C0209008500C1 /* Images.xcassets in Resources */,
+				31031CFD1B0C0ABD008500C1 /* StaffPicksViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31031CFC1B0C0ABD008500C1 /* StaffPicksViewController.swift in Sources */,
 				31031CDB1B0C0209008500C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
