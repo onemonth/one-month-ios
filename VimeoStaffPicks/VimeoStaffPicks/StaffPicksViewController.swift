@@ -12,8 +12,6 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView?
     
-    let cellIdentifier = "CellIdentifier"
-    
     let items = ["alfie", "lee", "mattan", "syd", "zach"]
     
     // MARK: View Lifecycle
@@ -32,7 +30,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     func setupTableView() {
         
-        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView?.registerClass(VideoCell.self, forCellReuseIdentifier: NSStringFromClass(VideoCell.self))
     }
     
     // MARK: UITableViewDatasource
@@ -44,7 +42,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(VideoCell.self)) as! VideoCell
         
         cell.textLabel?.text = self.items[indexPath.row]
         
