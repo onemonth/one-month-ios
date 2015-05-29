@@ -12,7 +12,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView?
     
-    let items = ["alfie", "lee", "mattan", "syd", "zach", "sjdhfalksdfhalsdfhlasdhflkjasdhfladhsfalkjsdhflkajshdflkjahsdflkajhsdflkajhsdf"]
+    var items: Array<Video> = []
     
     // MARK: View Lifecycle
 
@@ -47,7 +47,8 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(VideoCell.self)) as! VideoCell
         
-        cell.nameLabel?.text = self.items[indexPath.row]
+        let video = self.items[indexPath.row]
+        cell.video = video
         
         return cell
     }
@@ -58,10 +59,13 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
             
             if let constVideos = videos {
              
-                for video: Video in constVideos {
-                    println(video.name)
-                }
+                self.items = constVideos
+                
+                self.tableView?.reloadData()
 
+            }
+            else {
+                // TODO: alert the user
             }
         }
     }

@@ -13,23 +13,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b2-0k-owQ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b2-0k-owQ">
                         <rect key="frame" x="10" y="75" width="42" height="21"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9W-oT-gdz">
+                        <rect key="frame" x="248" y="75" width="42" height="21"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5gJ-Uv-LhA">
+                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="JJI-eh-Mdo"/>
+                            <constraint firstAttribute="width" constant="60" id="ukC-5M-XUM"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2b2-0k-owQ" secondAttribute="trailing" constant="10" id="NCh-9D-Bj4"/>
+                    <constraint firstAttribute="trailing" secondItem="H9W-oT-gdz" secondAttribute="trailing" constant="10" id="3O4-BB-nVf"/>
+                    <constraint firstItem="H9W-oT-gdz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2b2-0k-owQ" secondAttribute="trailing" constant="10" id="42Y-wl-hOF"/>
                     <constraint firstItem="2b2-0k-owQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Yx5-kL-XcU"/>
+                    <constraint firstItem="5gJ-Uv-LhA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="egl-OI-afE"/>
+                    <constraint firstAttribute="bottom" secondItem="H9W-oT-gdz" secondAttribute="bottom" constant="10" id="g4w-8c-vOD"/>
+                    <constraint firstItem="5gJ-Uv-LhA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pMa-15-7CU"/>
                     <constraint firstAttribute="bottom" secondItem="2b2-0k-owQ" secondAttribute="bottom" constant="10" id="yts-DF-F3W"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="0.53934630689999996" blue="0.51880376539999995" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="durationLabel" destination="H9W-oT-gdz" id="DjI-mq-aCQ"/>
                 <outlet property="nameLabel" destination="2b2-0k-owQ" id="1oS-z8-5HH"/>
+                <outlet property="videoImageView" destination="5gJ-Uv-LhA" id="gjp-cU-6Sf"/>
             </connections>
             <point key="canvasLocation" x="425" y="390.5"/>
         </tableViewCell>
