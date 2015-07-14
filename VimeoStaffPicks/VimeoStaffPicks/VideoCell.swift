@@ -49,7 +49,7 @@ class VideoCell: UITableViewCell {
                                 if data != nil {
                                     
                                     let image = UIImage(data: data)
-                                    strongSelf.imageView?.image = image
+                                    strongSelf.videoImageView?.image = image
                                     
                                 }
                                 else {
@@ -78,6 +78,7 @@ class VideoCell: UITableViewCell {
         self.video = nil
         self.nameLabel?.text = ""
         self.durationLabel?.text = ""
+        self.videoImageView?.image = nil
         self.task?.cancel()
         self.task = nil
     }
