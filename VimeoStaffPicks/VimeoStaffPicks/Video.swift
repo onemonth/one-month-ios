@@ -12,14 +12,16 @@ import UIKit
 class Video {
     
     var name: String? = ""
-    var duration: Int? = 0
+    var duration: String?
     var imageURLString: String? = ""
     
     init(dictionary: Dictionary<String,AnyObject>) {
         
         self.name = dictionary["name"] as? String
-        self.duration = dictionary["duration"] as? Int
-
+        
+        let duration = dictionary["duration"] as? Int ?? 0
+        self.duration = self.formattedDuration(duration)
+        
         var pictures = dictionary["pictures"] as? Dictionary<String,AnyObject>
         if let constPictures = pictures {
             
@@ -49,5 +51,16 @@ class Video {
         }
     }
     
-    
+    func formattedDuration(duration: Int) -> String
+    {
+        let minutes = duration / 60
+        
+        let seconds = duration % 60
+        
+        let minutesString = minutes < 10 ? "0\(minutes)" : "\(minutes)"
+        
+        let secondsString = seconds < 10 ? "0\(seconds)" : "\(seconds)"
+        
+        return minutesString + ":" + secondsString
+    }
 }
