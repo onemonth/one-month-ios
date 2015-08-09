@@ -1,5 +1,4 @@
-# one-month-ios
-One Month iOS - Course codebase
+##One Month iOS
 
 This repository contains 3 separate iOS projects:
 
