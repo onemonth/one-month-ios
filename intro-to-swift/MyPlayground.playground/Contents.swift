@@ -50,11 +50,11 @@ myOptionalString = nil
 
 if let myConstantString = myOptionalString
 {
-    println("the value is not nil")
+    print("the value is not nil")
 }
 else
 {
-    println("nil!")
+    print("nil!")
 }
 
 var myOptionalArray: Array<String>? = ["scrumptious"]

@@ -6,7 +6,7 @@ var str = "Hello, playground"
 
 func myFunction(name: String)
 {
-    println("Hi \(name)!")
+    print("Hi \(name)!")
 }
 
 myFunction("Alfie")
@@ -14,14 +14,14 @@ myFunction("Alfie")
 
 for index in 1...5
 {
-    println("Number: \(index)")
+    print("Number: \(index)")
 }
 
 func myNewFunction(name: String)
 {
-    for index in 1...5
+    for _ in 1...5
     {
-        println("Hi: \(name)")
+        print("Hi: \(name)")
     }
 }
 
@@ -32,5 +32,5 @@ let names = ["Alfie", "Scrumptious", "Chris", "Lee"]
 
 for name in names
 {
-    println("Hi \(name)")
+    print("Hi \(name)")
 }
