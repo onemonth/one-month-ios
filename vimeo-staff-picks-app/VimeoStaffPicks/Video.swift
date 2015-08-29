@@ -22,10 +22,10 @@ class Video {
         let duration = dictionary["duration"] as? Int ?? 0
         self.duration = self.formattedDuration(duration)
         
-        var pictures = dictionary["pictures"] as? Dictionary<String,AnyObject>
+        let pictures = dictionary["pictures"] as? Dictionary<String,AnyObject>
         if let constPictures = pictures {
             
-            var sizes = constPictures["sizes"] as? Array<Dictionary<String,AnyObject>>
+            let sizes = constPictures["sizes"] as? Array<Dictionary<String,AnyObject>>
             if let constSizes = sizes {
                 
                 if constSizes.count > 0 {

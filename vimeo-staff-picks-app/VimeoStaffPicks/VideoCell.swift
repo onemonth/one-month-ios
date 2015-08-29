@@ -46,7 +46,7 @@ class VideoCell: UITableViewCell {
                                 
                                 strongSelf.task = nil
                                 
-                                if data != nil {
+                                if let data = data {
                                     
                                     let image = UIImage(data: data)
                                     strongSelf.videoImageView?.image = image
