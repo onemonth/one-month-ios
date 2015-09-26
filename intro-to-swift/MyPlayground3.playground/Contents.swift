@@ -21,7 +21,7 @@ class Person
     
     func sayHi(friendName: String)
     {
-        println("Hi \(friendName)!")
+        print("Hi \(friendName)!")
     }
 }
 

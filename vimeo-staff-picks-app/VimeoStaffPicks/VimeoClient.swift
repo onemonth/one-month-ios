@@ -20,21 +20,21 @@ class VimeoClient {
     class func staffpicks(callback: ServerResponseCallback) {
         
         let URLString = baseURLString + staffpicksPath
-        var URL = NSURL(string: URLString)
+        let URL = NSURL(string: URLString)
         
         if URL == nil {
             
-            var error = NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to create URL"])
+            let error = NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to create URL"])
             callback(videos: nil, error: error)
             
             return
         }
         
-        var request = NSMutableURLRequest(URL: URL!)
+        let request = NSMutableURLRequest(URL: URL!)
         request.HTTPMethod = "GET"
         request.addValue("Bearer " + authToken, forHTTPHeaderField: "Authorization")
         
-        var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
 
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
               
@@ -45,19 +45,20 @@ class VimeoClient {
                     return
                 }
                 
-                var JSONError: NSError?
-                var JSON = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves, error: &JSONError) as? Dictionary<String,AnyObject>
-                
-                if JSONError != nil {
+                var JSON: Dictionary<String,AnyObject>? = nil
+                do {
+                    JSON = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as? Dictionary<String,AnyObject>
+                }
+                catch let error as NSError {
                     
-                    callback(videos: nil, error: JSONError)
+                    callback(videos: nil, error: error)
                     
                     return
                 }
                 
                 if JSON == nil {
                     
-                    var error = NSError(domain: self.errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to parse JSON"])
+                    let error = NSError(domain: self.errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to parse JSON"])
                     callback(videos: nil, error: error)
                     
                     return
@@ -67,7 +68,7 @@ class VimeoClient {
                 
                 if let constJSON = JSON {
 
-                    var dataArray = constJSON["data"] as? Array<Dictionary<String,AnyObject>>
+                    let dataArray = constJSON["data"] as? Array<Dictionary<String,AnyObject>>
                     
                     if let constArray = dataArray {
                         
