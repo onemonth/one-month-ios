@@ -7,7 +7,3 @@ This repository contains 3 separate iOS projects:
 3. Vimeo Staff Picks App
 
 In the [One Month iOS course](https://onemonth.com/courses/ios) we write all of this code from scratch and learn about all of the moving pieces as we go. 
-
-###Xcode 7 / Swift 2.0
-
-See the `xcode7-beta6` branch for a version of the repo that is compatible with Xcode 7 - Beta 6 and Swift 2.0
