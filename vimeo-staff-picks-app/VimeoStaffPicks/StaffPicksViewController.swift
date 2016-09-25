@@ -33,21 +33,21 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     func setupTableView() {
 
         let nib = UINib(nibName: "VideoCell", bundle: nil)
-        self.tableView?.registerNib(nib, forCellReuseIdentifier: NSStringFromClass(VideoCell.self))
+        self.tableView?.register(nib, forCellReuseIdentifier: NSStringFromClass(VideoCell.self))
     }
     
     // MARK: UITableViewDatasource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(VideoCell.self)) as! VideoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(VideoCell.self)) as! VideoCell
         
-        let video = self.items[indexPath.row]
+        let video = self.items[(indexPath as NSIndexPath).row]
         cell.video = video
         
         return cell

@@ -8,6 +8,26 @@
 
 import Foundation
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class Video {
     
@@ -30,7 +50,7 @@ class Video {
                 
                 if constSizes.count > 0 {
 
-                    let screenWidth = UIScreen.mainScreen().bounds.size.width * UIScreen.mainScreen().scale
+                    let screenWidth = UIScreen.main.bounds.size.width * UIScreen.main.scale
                     
                     let viableSizes = constSizes.filter({$0["width"] as? CGFloat >= screenWidth})
                     
@@ -51,7 +71,7 @@ class Video {
         }
     }
     
-    func formattedDuration(duration: Int) -> String
+    func formattedDuration(_ duration: Int) -> String
     {
         let minutes = duration / 60
         

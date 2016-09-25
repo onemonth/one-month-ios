@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias ServerResponseCallback = (videos: Array<Video>?, error: NSError?) -> Void
+typealias ServerResponseCallback = (_ videos: Array<Video>?, _ error: Error?) -> Void
 
 class VimeoClient {
     
@@ -17,41 +17,41 @@ class VimeoClient {
     static let staffpicksPath = "/channels/staffpicks/videos"
     static let authToken = "eeb3566316fc39f535a4276a63d90649"
     
-    class func staffpicks(callback: ServerResponseCallback) {
+    class func staffpicks(_ callback: @escaping ServerResponseCallback) {
         
         let URLString = baseURLString + staffpicksPath
-        let URL = NSURL(string: URLString)
+        let URL = Foundation.URL(string: URLString)
         
         if URL == nil {
             
             let error = NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to create URL"])
-            callback(videos: nil, error: error)
+            callback(nil, error)
             
             return
         }
         
-        let request = NSMutableURLRequest(URL: URL!)
-        request.HTTPMethod = "GET"
+        var request = URLRequest(url: URL!)
+        request.httpMethod = "GET"
         request.addValue("Bearer " + authToken, forHTTPHeaderField: "Authorization")
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+        let task = URLSession.shared.dataTask(with: request) {data, response, error in
 
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
               
                 if error != nil {
                     
-                    callback(videos: nil, error: error)
+                    callback(nil, error)
                     
                     return
                 }
                 
                 var JSON: Dictionary<String,AnyObject>? = nil
                 do {
-                    JSON = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as? Dictionary<String,AnyObject>
+                    JSON = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as? Dictionary<String,AnyObject>
                 }
-                catch let error as NSError {
+                catch let error {
                     
-                    callback(videos: nil, error: error)
+                    callback(nil, error)
                     
                     return
                 }
@@ -59,7 +59,7 @@ class VimeoClient {
                 if JSON == nil {
                     
                     let error = NSError(domain: self.errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to parse JSON"])
-                    callback(videos: nil, error: error)
+                    callback(nil, error)
                     
                     return
                 }
@@ -80,11 +80,10 @@ class VimeoClient {
                     }
                 }
                 
-                callback(videos: videoArray, error: nil)
+                callback(videoArray, nil)
 
             })
-            
-        })
+        }
         
         task.resume()
     }

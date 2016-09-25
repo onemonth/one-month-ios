@@ -10,7 +10,7 @@ import UIKit
 
 class VideoCell: UITableViewCell {
 
-    var task: NSURLSessionDataTask?
+    var task: URLSessionDataTask?
     
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var durationLabel: UILabel?
@@ -32,11 +32,11 @@ class VideoCell: UITableViewCell {
                 
                 if let constImageURLString = constVideo.imageURLString {
                     
-                    let url = NSURL(string: constImageURLString)!
+                    let url = URL(string: constImageURLString)!
                     
-                    self.task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { [weak self] (data, response, error) -> Void in
+                    self.task = URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) -> Void in
                         
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        DispatchQueue.main.async(execute: { () -> Void in
 
                             if let strongSelf = self {
 
